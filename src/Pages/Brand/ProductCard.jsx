@@ -15,7 +15,7 @@ const ProductCard = ({product}) => {
                 <p className='font-medium'>Price: <span className='font-normal'>{price} BDT</span></p>
                 <p className='font-medium'>Rating: <span className='font-normal'>{rating} BDT</span></p>
                 <div className="card-actions grid grid-cols-2 justify-center mt-2">
-                    <NavLink to={`/${id}`} className="btn btn-neutral border-0 bg-primary text-white transition duration-300 w-full">More Details</NavLink>
+                    <NavLink to={`/products/${brand}-${id}`} className="btn btn-neutral border-0 bg-primary text-white transition duration-300 w-full">More Details</NavLink>
                     <NavLink to={`/${id}`} className="btn btn-neutral border btn-outline text-primary transition duration-300 w-full hover:bg-primary hover:border-primary">Update </NavLink>
                 </div>
             </div>

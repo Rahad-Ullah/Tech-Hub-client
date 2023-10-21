@@ -1,7 +1,16 @@
 import { Link, NavLink } from "react-router-dom";
 import logo from '../../assets/TechHub_logo2.jpg'
+import { useContext } from "react";
+import { AuthContext } from "../../providers/AuthProvider";
+import user_logo from '../../assets/user_logo.png'
 
 const Navbar = () => {
+
+    const {user, logOut} = useContext(AuthContext)
+  
+    const handleLogOut = () =>{
+      logOut();
+    }
 
     const navLinks = <>
         <li><NavLink to={"/"}>Home</NavLink></li>
@@ -31,24 +40,24 @@ const Navbar = () => {
             </div>
             <div className="navbar-end gap-2">
                 <div className="hidden md:block">
-                {/* {
+                {
                     user &&
                     <p className="text-lg font-medium">{user?.displayName}</p>
-                } */}
+                }
                 </div>
                 <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                 <div className="w-10 rounded-full">
-                {/* {
+                {
                 user &&
-                <img src={user?.photoURL || userPhoto} />
-                } */}
+                <img src={user?.photoURL || user_logo} />
+                }
                 </div>
                 </label>
                 <div className="hidden md:block">
                 {
-                // user ? 
-                // <Link onClick={handleLogOut}  className="btn btn-neutral border-0 bg-rose-500 text-white rounded">Sign out</Link>
-                // :
+                user ? 
+                <Link onClick={handleLogOut}  className="btn btn-neutral border-0 bg-primary text-white rounded">Sign out</Link>
+                :
                 <Link to={"/login"} className="btn btn-neutral border-0 bg-primary text-white rounded">Login</Link>
                 }
                 </div>

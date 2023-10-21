@@ -6,7 +6,7 @@ const Brand = () => {
     const brandName = useParams().name;
 
     const detailsBrand = detailsBrands.find(brand => brand.name === brandName)
-    const {name, images, products} = detailsBrand;
+    const { images, products} = detailsBrand;
 
     return (
         <div>

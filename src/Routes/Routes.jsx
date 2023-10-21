@@ -3,6 +3,9 @@ import Root from "../Layouts/Root/Root";
 import Home from "../Pages/Home/Home";
 import Error from "../Pages/Error/Error";
 import Brand from "../Pages/Brand/Brand";
+import ProductDetails from "../Pages/ProductDetails/ProductDetails";
+import Register from "../Pages/Register/Register";
+import Login from "../Pages/Login/Login";
 
 const router = createBrowserRouter([
     {
@@ -20,7 +23,19 @@ const router = createBrowserRouter([
                 element: <Brand></Brand>,
                 loader: () => fetch(`/brandsDetail.json`)
             },
-            
+            {
+                path: '/products/:id',
+                element: <ProductDetails></ProductDetails>,
+                loader: () => fetch(`/brandsDetail.json`)
+            }, 
+            {
+                path: '/register',
+                element: <Register></Register>
+            },
+            {
+                path: '/login',
+                element: <Login></Login>
+            }
         ]
     }
 ])

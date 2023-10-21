@@ -3,9 +3,9 @@
         "id": 1,
         "name": "Samsung",
         "images": {
-            "image_1": "",
-            "image_2": "",
-            "image_3": ""
+            "image_1": "https://i.ibb.co/BsMdkYr/slider-1.webp",
+            "image_2": "https://i.ibb.co/gTSFmv0/slider-2.png",
+            "image_3": "https://i.ibb.co/h2VDt8x/slider-3.jpg"
         },
         "products": [
             {
@@ -75,9 +75,9 @@
         "id": 2,
         "name": "Apple",
         "images": {
-            "image_1": "",
-            "image_2": "",
-            "image_3": ""
+            "image_1": "https://images.macrumors.com/article-new/2020/10/iphone-13-color-lineup.jpg",
+            "image_2": "https://powermaccenter.com/cdn/shop/articles/01.-iPhone-13-Now-Available---Banner.jpg?v=1684808457",
+            "image_3": "https://i.ytimg.com/vi/GzL4BQfe3Fg/maxresdefault.jpg"
         },
         "products": [
             {
@@ -147,9 +147,9 @@
         "id": 3,
         "name": "Google",
         "images": {
-            "image_1": "",
-            "image_2": "",
-            "image_3": ""
+            "image_1": "https://cdn.dxomark.com/wp-content/uploads/medias/post-127929/Google-Pixel-7_featured-image-packshot-review.jpg",
+            "image_2": "https://www.harveynorman.com.au/media/wysiwyg/Google/Pixel/Google-pixel-7-pro-banner.jpg",
+            "image_3": "https://9to5google.com/wp-content/uploads/sites/4/2022/05/pixel_7_1-1.jpg?quality=82&strip=all"
         },
         "products": [
             {
@@ -219,9 +219,9 @@
         "id": 4,
         "name": "Sony",
         "images": {
-            "image_1": "",
-            "image_2": "",
-            "image_3": ""
+            "image_1": "https://mobiledam.com.bd/assets/img/Sony-Xperia-1-II-Balck.jpg",
+            "image_2": "https://www.alezay.com/wp-content/uploads/2021/08/SONY-XPERIA-1-III-5G-MAIN-BANNER-ALEZAY-KUWAIT.jpg",
+            "image_3": "https://www.notebookcheck.net/fileadmin/Notebooks/News/_nc3/Sony_Xperia_1_III_bundle.jpg"
         },
         "products": [
             {
@@ -291,9 +291,9 @@
         "id": 5,
         "name": "Intel",
         "images": {
-            "image_1": "",
-            "image_2": "",
-            "image_3": ""
+            "image_1": "https://m.media-amazon.com/images/I/51hhdCoaFvL.jpg",
+            "image_2": "https://cdn.videocardz.com/1/2023/05/INTEL-12900KS-HERO-BANNER-1200x492.jpg",
+            "image_3": "https://cdn.videocardz.com/1/2022/08/Core-i9-12900K-packaging.jpg"
         },
         "products": [
             {

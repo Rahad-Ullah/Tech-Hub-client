@@ -1,8 +1,26 @@
-import { NavLink, useLoaderData } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
 
 const ProductDetails = () => {
     const productDetails = useLoaderData()
-    const {_id, name, image, brandName, type, price, rating, shortDescription} = productDetails;
+    const { name, image, brandName, type, price, rating, shortDescription} = productDetails;
+
+    const cartProduct = {name, image, type, price}
+
+    // send data to server to add cart
+    const handleAddCart = () => {
+        fetch('http://localhost:5000/cart', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(cartProduct)
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+        })
+    }
+
 
     return (
         <div className="w-full md:w-2/3 lg:w-1/2 mx-auto pb-12">
@@ -23,12 +41,12 @@ const ProductDetails = () => {
                             <tbody>
                             {/* row 1 */}
                             <tr>
-                                <td className="font-medium">Brand</td>
-                                <td className="border-l">{brandName}</td>
-                            </tr>
-                            <tr>
                                 <td className="font-medium">Type</td>
                                 <td className="border-l">{type}</td>
+                            </tr>
+                            <tr>
+                                <td className="font-medium">Brand</td>
+                                <td className="border-l">{brandName}</td>
                             </tr>
                             <tr>
                                 <td className="font-medium">Rating</td>
@@ -38,7 +56,7 @@ const ProductDetails = () => {
                         </table>
                     </div>
                     <div className="card-actions justify-center mt-2">
-                        <NavLink to={`/products/${brandName}-${_id}`} className="btn btn-neutral border-0 bg-primary text-white transition duration-300 mt-4">Add to Cart</NavLink>
+                        <button onClick={handleAddCart} className="btn btn-neutral border-0 bg-primary text-white transition duration-300 mt-4">Add to Cart</button>
                     </div>
                 </div>
             </div>

@@ -36,7 +36,7 @@ const Update = () => {
         <div>
             <div className='max-w-5xl mx-auto py-16'>
                 <div className="px-8 md:px-28 py-16 bg-[#ff523b0d]">
-                <h2 className="text-3xl text-center mb-6 font-rancho text-[#374151]">Update Product</h2>
+                <h2 className="text-3xl text-center font-semibold mb-6 font-rancho text-[#374151]">Update Product</h2>
                 <div>
                 <form onSubmit={handleUpdate} className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     {/* Name */}

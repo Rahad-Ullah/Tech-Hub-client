@@ -4,7 +4,6 @@ import { NavLink } from 'react-router-dom';
 
 const ProductCard = ({product}) => {
     const {_id, name, image, brandName, type, price, rating} = product;
-    console.log(product)
 
     return (
         <div className="card bg-base-100 border rounded-xl transition-all duration-300  hover:border-primary">

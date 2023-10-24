@@ -52,7 +52,7 @@ const AddProduct = () => {
                     {/* Brand Name */}
                     <div className="form-control">
                     <label className="label">
-                        <span className="label-text">Brand Name</span>
+                        <span className="label-text">Brand</span>
                     </label>
                     <input
                         type="text"

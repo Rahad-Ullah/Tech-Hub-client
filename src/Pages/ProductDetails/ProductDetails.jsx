@@ -16,22 +16,63 @@ const ProductDetails = () => {
 
     return (
         <div className="w-full md:w-2/3 lg:w-1/2 mx-auto py-12">
-            <div className="card bg-base-100 border-0 md:border rounded-xl p-6">
+            <div className="card bg-base-100 border-0 md:borde rounded-xl p-6">
                 <figure data-aos="zoom-in"><img src={image} alt="image" className=" w-10/12 p-5"/></figure>
                 <div data-aos="zoom-in" className="card-body p-5">
                     <h2 className="card-title text-xl md:text-2xl lg:text-3xl">{name}</h2>
-                    <p className='font-semibold text-lg text-primary'>Price: {price} BDT</p>
-                    <p className='font-medium'>Brand: <span className='font-normal'>{brand}</span></p>
-                    <p className='font-medium'>Type: <span className='font-normal'>{type}</span></p>
-                    <p className='font-medium'>Color: <span className='font-normal'>{color}</span></p>
-                    <p className='font-medium'>Dimension: <span className='font-normal'>{dimension}</span></p>
-                    <p className='font-medium'>Weight: <span className='font-normal'>{weight}</span></p>
-                    <p className='font-medium'>Manufacture Country: <span className='font-normal'>{manufacture_country}</span></p>
-                    <p className='font-medium'>Warranty: <span className='font-normal'>{warranty}</span></p>
-                    <p className='font-medium'>Warranty Time: <span className='font-normal'>{warranty_time} Month</span></p>
-                    <p className='font-medium'>Rating: <span className='font-normal'>{rating} BDT</span></p>
-                    <div className="card-actions justify-start mt-2">
-                        <NavLink to={`/products/${brand}-${id}`} className="btn btn-neutral border-0 bg-primary text-white transition duration-300">Add to Cart</NavLink>
+                    <p className='font-semibold text-lg text-primary mb-8'>Price: {price} BDT</p>
+                    
+                    <div className="overflow-x-auto">
+                    <table className="table border">
+                        {/* head */}
+                        <thead>
+                        <tr>
+                            <th colSpan={2} className="text-center text-zinc-800 text-lg">Specifications</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {/* row 1 */}
+                        <tr>
+                            <td className="font-medium">Brand</td>
+                            <td className="border-l">{brand}</td>
+                        </tr>
+                        <tr>
+                            <td className="font-medium">Type</td>
+                            <td className="border-l">{type}</td>
+                        </tr>
+                        <tr>
+                            <td className="font-medium">Color</td>
+                            <td className="border-l">{color}</td>
+                        </tr>
+                        <tr>
+                            <td className="font-medium">Dimension</td>
+                            <td className="border-l">{dimension}</td>
+                        </tr>
+                        <tr>
+                            <td className="font-medium">Weight</td>
+                            <td className="border-l">{weight}</td>
+                        </tr>
+                        <tr>
+                            <td className="font-medium">Manufacture Country</td>
+                            <td className="border-l">{manufacture_country}</td>
+                        </tr>
+                        <tr>
+                            <td className="font-medium">Warranty</td>
+                            <td className="border-l">{warranty}</td>
+                        </tr>
+                        <tr>
+                            <td className="font-medium">Warranty Time</td>
+                            <td className="border-l">{warranty_time}</td>
+                        </tr>
+                        <tr>
+                            <td className="font-medium">Rating</td>
+                            <td className="border-l">{rating}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    </div>
+                    <div className="card-actions justify-center mt-2">
+                        <NavLink to={`/products/${brand}-${id}`} className="btn btn-neutral border-0 bg-primary text-white transition duration-300 mt-4">Add to Cart</NavLink>
                     </div>
                 </div>
             </div>

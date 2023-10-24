@@ -5,7 +5,7 @@ import logo from '../../assets/TechHub_logo2.jpg'
 
 const Footer = () => {
     return (
-    <div className="bg-info-content text-base-300 mt-16">
+    <div className="bg-info-content text-base-300">
         <footer className="footer max-w-6xl mx-auto py-16 px-4 md:px-6 lg:px-8">
             <aside>
                 <img src={logo} alt="logo" className="w-48"/>

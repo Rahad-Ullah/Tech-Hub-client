@@ -2,6 +2,8 @@ import { useContext } from "react";
 import { FaGoogle } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
+import Swal from 'sweetalert2'
+
 
 const Login = () => {
     const {loginUser, googleSignIn} = useContext(AuthContext)
@@ -14,19 +16,24 @@ const Login = () => {
         const email = form.get('email')
         const password = form.get('password')
         console.log(email, password)
-
-        // password length validation
-        if(password.length < 6){
-            alert("Password must be at least 6 character")
-            return;
-        }
+        
 
         loginUser(email, password)
         .then(() => {
-            alert('Login Successful')
+            Swal.fire({
+                title: 'Successful!',
+                text: 'Login Successful',
+                icon: 'success',
+                confirmButtonText: 'Ok'
+              })
             navigate(location?.state || "/")
         }).catch((err) => {
-            alert("Invalid Input")
+            Swal.fire({
+                title: 'Error!',
+                text: 'Invalid email or password',
+                icon: 'error',
+                confirmButtonText: 'Try again'
+              })
             console.log(err.code)
         });
     }
@@ -34,10 +41,20 @@ const Login = () => {
     const handleGoogleSignIn = () =>{
         googleSignIn()
         .then(() => {
-            alert("Login Successful")
+            Swal.fire({
+                title: 'Successful!',
+                text: 'Login Successful',
+                icon: 'success',
+                confirmButtonText: 'Ok'
+              })
             navigate(location?.state || "/")
         }).catch((err) => {
-            alert("Login Failed")
+            Swal.fire({
+                title: 'Error!',
+                text: 'Invalid email or password',
+                icon: 'error',
+                confirmButtonText: 'Try again'
+              })
             console.log(err)
         });
     }

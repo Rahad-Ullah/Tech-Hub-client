@@ -1,11 +1,13 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
+import Swal from 'sweetalert2'
 
 
 const Register = () => {
 
     const {creatUser} = useContext(AuthContext)
+    const [error, setError] = useState('')
 
     
     const handleRegister =  (e) => {
@@ -19,21 +21,34 @@ const Register = () => {
 
         // password length validation
         if(password.length < 6){
-            alert("Password must be at least 6 character")
+            setError("Password must be at least 6 character")
             return;
         }
         else if(!/[A-Z][`!@#$%^&*()_\-+={};':"|,.<>?~ ]/.test(password)){
-            alert('Password must have at least one capital letter and special character')
+            setError('Password must have at least one capital letter and special character')
             return;
+        }
+        else{
+            setError('')
         }
         
         
         creatUser(email, password)
         .then(() => {
-            alert("Registration Successful")
+            Swal.fire({
+                title: 'Successful!',
+                text: 'Registration Successful',
+                icon: 'success',
+                confirmButtonText: 'Ok'
+              })
         }).catch((err) => {
-            alert('Email already in use')
             console.log(err)
+            Swal.fire({
+                title: 'Error!',
+                text: 'Email already in use',
+                icon: 'error',
+                confirmButtonText: 'Try again'
+              })
         });
     }
     
@@ -68,6 +83,7 @@ const Register = () => {
                                     <span className="label-text font-semibold">Password</span>
                                 </label>
                                 <input type="password" name="password" placeholder="Enter your password" className="input input-bordered" required />
+                                <p className="text-sm text-red-500 my-1">{error}</p>
                             </div>
 
                             {/* Photo URL */}

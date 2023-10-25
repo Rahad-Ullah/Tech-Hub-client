@@ -1,8 +1,10 @@
 import { useLoaderData } from "react-router-dom";
 import CartItem from "./CartItem";
+import { useState } from "react";
 
 const Cart = () => {
     const cartProducts = useLoaderData()
+    const [products, setProducts] = useState(cartProducts)
 
     return (
         <div className="bg-base-300 px-4 md:px-6 lg:px-8 py-16">
@@ -16,12 +18,19 @@ const Cart = () => {
                         <table className="table">
                             <tbody>
                             {/* rows */}
-                                {
-                                    cartProducts.map(item => <CartItem 
-                                        key={item._id}
-                                        product={item}
-                                        ></CartItem>)
-                                }
+                            {
+                                products.length > 0
+                                ?
+                                products.map(item => <CartItem 
+                                    key={item._id}
+                                    product={item}
+                                    products={products}
+                                    setProducts={setProducts}
+                                    ></CartItem>)
+                                :
+                                <h1 className="text-2xl font-semibold text-center opacity-50 py-8">No product added</h1>
+
+                            }
                             </tbody>
 
                             

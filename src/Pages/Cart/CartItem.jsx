@@ -3,8 +3,8 @@ import PropTypes from 'prop-types'
 import { RiDeleteBin5Line } from 'react-icons/ri';
 import { FaMinus, FaPlus } from 'react-icons/fa';
 
-const CartItem = ({product }) => {
-    const {name, image, type, price} = product;
+const CartItem = ({product, products, setProducts }) => {
+    const {_id, name, image, type, price} = product;
 
     const [quantity, setQuantity] = useState(1)
     const handleQuantity = (operation) => {
@@ -20,7 +20,17 @@ const CartItem = ({product }) => {
     const totalPrice = (priceInt * quantity)
 
     const handleDelete = () => {
-        console.log('deleted')
+        fetch(`http://localhost:5000/cart/${_id}`, {
+            method: 'DELETE'
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+            if(data.deletedCount){
+              const remaining = products.filter(user => user._id !== _id)
+              setProducts(remaining)
+            }
+        })
     }
 
     return (
@@ -58,6 +68,8 @@ const CartItem = ({product }) => {
 
 CartItem.propTypes = {
     product: PropTypes.object,
+    products: PropTypes.array,
+    setProducts: PropTypes.func,
 }
 
 export default CartItem;
